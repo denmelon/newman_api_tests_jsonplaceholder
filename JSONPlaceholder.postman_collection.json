@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "4d51b6a1-d47c-4d89-a2d0-d4de566e1f4f",
+		"name": "JSONPlaceholder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2175753",
+		"_collection_link": "https://denis-jj.postman.co/workspace/API-testing-portfolio~a9ce7232-5e65-4253-a0b8-aa79534b04ba/collection/2175753-4d51b6a1-d47c-4d89-a2d0-d4de566e1f4f?action=share&source=collection_link&creator=2175753"
+	},
+	"item": [
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url\t}}/posts",
+					"host": [
+						"{{base_url\t}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response has a title\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url\t}}/posts/{{post_id}}",
+					"host": [
+						"{{base_url\t}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/comments?postId=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response is an array\", function () {\r",
+							"    const data = pm.response.json();\r",
+							"    pm.expect(data).to.be.an(\"array\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url\t}}/comments?postId=1",
+					"host": [
+						"{{base_url\t}}"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

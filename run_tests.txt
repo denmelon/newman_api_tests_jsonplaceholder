@@ -1,0 +1,1 @@
+newman run J:\Learning\Postman_projects\JSONPlaseholder\JSONPlaceholder.postman_collection.json -e J:\Learning\Postman_projects\JSONPlaseholder\jsonplaceholder_env.postman_environment.json -r cli,html --reporter-html-export "J:\Learning\Postman_projects\JSONPlaseholder\report.html"
