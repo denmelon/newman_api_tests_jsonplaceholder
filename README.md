@@ -1,31 +1,31 @@
 
 # 📬 Postman API Tests — JSONPlaceholder
 
-Автоматизированные API-тесты для [JSONPlaceholder](https://jsonplaceholder.typicode.com), созданные в Postman.
+Automated API tests for JSONPlaceholder created using Postman.
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 postman-api-tests/
-├── JSONPlaceholder.postman_collection.json   # Коллекция запросов
-├── jsonplaceholder_env.postman_environment.json   # Окружение с переменными
+├── JSONPlaceholder.postman_collection.json   # Collection of API requests
+├── jsonplaceholder_env.postman_environment.json   # Environment with variables
 └── .github/
     └── workflows/
-        └── postman-tests.yml                 # CI для запуска через GitHub Actions
+        └── postman-tests.yml                 # CI config for GitHub Actions
 ```
 
-## ✅ Что покрыто
+## ✅ Covered Scenarios
 
-- `GET /posts` — список постов
-- `GET /posts/1` — отдельный пост
-- `GET /comments?postId=1` — комментарии к посту
-- Базовые проверки:
-  - Статус-код
-  - Тип данных (массив, объект)
-  - Поля ответа
-- Использование переменных (`{{base_url}}`, `{{post_id}}`)
+- `GET /posts` — list of posts
+- `GET /posts/1` — single post
+- `GET /comments?postId=1` — comments for a post
+- Basic tests include:
+  - Status code verification
+  - Response type (array, object)
+  - Field existence and values
+- Use of environment variables ({{base_url}}, {{post_id}})
 
-## 🧪 Запуск локально через Newman
+## 🧪 Run Locally with Newman
 
 ```bash
 newman run JSONPlaceholder.postman_collection.json   -e jsonplaceholder_env.postman_environment.json   -r cli,html   --reporter-html-export report.html
@@ -33,19 +33,19 @@ newman run JSONPlaceholder.postman_collection.json   -e jsonplaceholder_env.post
 
 ## ⚙️ CI: GitHub Actions
 
-Коллекция автоматически запускается при каждом push в ветку `main`.  
-Результаты доступны как HTML-отчёт в артефактах CI.
+The collection is automatically executed on every push to the main branch.
+Results are stored as an HTML report in CI artifacts.
 
-## 📄 Отчёт
+## 📄 Report
 
-Файл `report.html` можно открыть в браузере.
+Open the `report.html` file in your browser to view the results.
 
-## 📦 Зависимости
+## 📦 Dependencies
 
 - [Postman](https://www.postman.com/)
 - [Newman](https://github.com/postmanlabs/newman)
-- HTML-репортёр: `npm install -g newman-reporter-html`
+- HTML reporter: `npm install -g newman-reporter-html`
 
 ---
 
-📁 *Проект создан в рамках портфолио QA-инженера. Основа — практика тестирования REST API.*
+📁 *This project is part of a QA engineer's portfolio focused on REST API testing.*
